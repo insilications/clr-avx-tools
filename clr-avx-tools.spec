@@ -4,7 +4,7 @@
 #
 Name     : clr-avx-tools
 Version  : 7
-Release  : 7
+Release  : 8
 URL      : https://github.com/clearlinux/clr-avx-tools/archive/v7.tar.gz
 Source0  : https://github.com/clearlinux/clr-avx-tools/archive/v7.tar.gz
 Summary  : No detailed summary available
