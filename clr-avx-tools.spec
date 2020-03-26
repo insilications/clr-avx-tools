@@ -4,15 +4,15 @@
 #
 Name     : clr-avx-tools
 Version  : 7
-Release  : 8
+Release  : 9
 URL      : https://github.com/clearlinux/clr-avx-tools/archive/v7.tar.gz
 Source0  : https://github.com/clearlinux/clr-avx-tools/archive/v7.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
-Requires: clr-avx-tools-bin
-Requires: clr-avx-tools-data
-Requires: clr-avx-tools-license
+Requires: clr-avx-tools-bin = %{version}-%{release}
+Requires: clr-avx-tools-data = %{version}-%{release}
+Requires: clr-avx-tools-license = %{version}-%{release}
 
 %description
 No detailed description available
@@ -20,8 +20,8 @@ No detailed description available
 %package bin
 Summary: bin components for the clr-avx-tools package.
 Group: Binaries
-Requires: clr-avx-tools-data
-Requires: clr-avx-tools-license
+Requires: clr-avx-tools-data = %{version}-%{release}
+Requires: clr-avx-tools-license = %{version}-%{release}
 
 %description bin
 bin components for the clr-avx-tools package.
@@ -45,20 +45,30 @@ license components for the clr-avx-tools package.
 
 %prep
 %setup -q -n clr-avx-tools-7
+cd %{_builddir}/clr-avx-tools-7
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1536432575
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1585183905
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 make  %{?_smp_mflags}
 
+
 %install
-export SOURCE_DATE_EPOCH=1536432575
+export SOURCE_DATE_EPOCH=1585183905
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/clr-avx-tools
-cp COPYING %{buildroot}/usr/share/doc/clr-avx-tools/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/clr-avx-tools
+cp %{_builddir}/clr-avx-tools-7/COPYING %{buildroot}/usr/share/package-licenses/clr-avx-tools/04319952ed7b0f3b3a70ae4d5d9f954317b8f970
 %make_install
 
 %files
@@ -76,5 +86,5 @@ cp COPYING %{buildroot}/usr/share/doc/clr-avx-tools/COPYING
 /usr/share/clr-avx-tools/avxjudge.py
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/clr-avx-tools/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/clr-avx-tools/04319952ed7b0f3b3a70ae4d5d9f954317b8f970
