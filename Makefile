@@ -1,5 +1,6 @@
 PKG_NAME := clr-avx-tools
-URL = https://github.com/clearlinux/clr-avx-tools/archive/v9/clr-avx-tools-9.tar.gz
+URL = https://github.com/insilications/clr-avx-tools-clr.git
 ARCHIVES = 
+ARCHIVES_GIT = 
 
 include ../common/Makefile.common
