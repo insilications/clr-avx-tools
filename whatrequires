@@ -1,4 +1,18 @@
 # This file contains recursive sources that require this package
 clr-python-timestamp
 clr-rpm-config
+createrepo_c
+createrepo_c-dev
+diffoscope
+filesystem
+koji
+libdnf
+libdnf-dev
+libmodulemd
+libmodulemd-dev
+libsolv
+patchutils
 python
+qtwebengine
+rpm
+rpm-dev
