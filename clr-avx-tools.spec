@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : clr-avx-tools
 Version  : 100.1
-Release  : 303
+Release  : 304
 URL      : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v100.1.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v100.1.tar.gz
 Summary  : No detailed summary available
@@ -47,7 +47,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1637717551
+export SOURCE_DATE_EPOCH=1637808590
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -127,7 +127,7 @@ make  %{?_smp_mflags}    V=1 VERBOSE=1 CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}"
 
 
 %install
-export SOURCE_DATE_EPOCH=1637717551
+export SOURCE_DATE_EPOCH=1637808590
 rm -rf %{buildroot}
 %make_install
 

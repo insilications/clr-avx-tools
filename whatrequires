@@ -16,3 +16,4 @@ python
 qtwebengine
 rpm
 rpm-dev
+rpm-staticdev
