@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : clr-avx-tools
 Version  : 100.1
-Release  : 304
+Release  : 401
 URL      : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v100.1.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v100.1.tar.gz
 Summary  : No detailed summary available
@@ -47,7 +47,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1637808590
+export SOURCE_DATE_EPOCH=1638011558
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -100,9 +100,9 @@ export PATH="/usr/lib64/ccache/bin:/usr/local/cuda/bin:/usr/nvidia/bin:/usr/bin/
 export CPATH="/usr/local/cuda/include"
 #
 export DISPLAY=:0
-export __GL_SYNC_TO_VBLANK=0
-export __GL_SYNC_DISPLAY_DEVICE=DFP-1
-export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DFP-1
+export __GL_SYNC_TO_VBLANK=1
+export __GL_SYNC_DISPLAY_DEVICE=HDMI-0
+export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=HDMI-0
 export LANG=en_US.UTF-8
 export XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
 export XDG_SEAT=seat0
@@ -127,7 +127,7 @@ make  %{?_smp_mflags}    V=1 VERBOSE=1 CFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}"
 
 
 %install
-export SOURCE_DATE_EPOCH=1637808590
+export SOURCE_DATE_EPOCH=1638011558
 rm -rf %{buildroot}
 %make_install
 
