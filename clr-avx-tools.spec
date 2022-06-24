@@ -4,10 +4,10 @@
 #
 %define keepstatic 1
 Name     : clr-avx-tools
-Version  : 113.3
-Release  : 420
-URL      : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v113.3.tar.gz
-Source0  : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v113.3.tar.gz
+Version  : 114.0
+Release  : 421
+URL      : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v114.0.tar.gz
+Source0  : file:///aot/build/clearlinux/packages/clr-avx-tools/clr-avx-tools-v114.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -47,10 +47,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654852795
-export AR=gcc-ar
-export RANLIB=gcc-ranlib
-export NM=gcc-nm
+export SOURCE_DATE_EPOCH=1656034385
 ## altflags1 content
 export CFLAGS="-g3 -ggdb -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flive-range-shrinkage -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc -Wl,--build-id=sha1"
 ## -fno-tree-vectorize: disable -ftree-vectorize thus disable -ftree-loop-vectorize and -ftree-slp-vectorize -fopt-info-vec
@@ -126,11 +123,8 @@ make  %{?_smp_mflags}    V=1 VERBOSE=1
 
 
 %install
-export SOURCE_DATE_EPOCH=1654852795
+export SOURCE_DATE_EPOCH=1656034385
 rm -rf %{buildroot}
-export AR=gcc-ar
-export RANLIB=gcc-ranlib
-export NM=gcc-nm
 ## altflags1 content
 export CFLAGS="-g3 -ggdb -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flive-range-shrinkage -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc -Wl,--build-id=sha1"
 ## -fno-tree-vectorize: disable -ftree-vectorize thus disable -ftree-loop-vectorize and -ftree-slp-vectorize -fopt-info-vec
